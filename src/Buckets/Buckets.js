@@ -1,102 +1,27 @@
 import React from 'react';
 import Bucket from './Bucket/Bucket.js';
 
-/* Import Bootstrap components. */
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
-
+/* Describe the value buckets available to the user. */
 const bucketList = [
-	['Not important', 50],
-	['Important', 25],
-	['Very important', 10],
-	['Top three', 3]
+	{ key: 1, title: 'Not important', maxValues: 50 },
+	{ key: 2, title: 'Important', maxValues: 25 },
+	{ key: 3, title: 'Very important', maxValues: 10 },
+	{ key: 4, title: 'Top three', maxValues: 3 }
 ];
 
-/* Values list from James Clear. */
-const valuesList = [
-	'Authenticity',
-	'Achievement',
-	'Adventure',
-	'Authority',
-	'Autonomy',
-	'Balance',
-	'Beauty',
-	'Boldness',
-	'Compassion',
-	'Challenge',
-	'Citizenship',
-	'Community',
-	'Competency',
-	'Contribution',
-	'Creativity',
-	'Curiosity',
-	'Determination',
-	'Fairness',
-	'Faith',
-	'Fame',
-	'Friendships',
-	'Fun',
-	'Growth',
-	'Happiness',
-	'Honesty',
-	'Humor',
-	'Influence',
-	'Inner Harmony',
-	'Justice',
-	'Kindness',
-	'Knowledge',
-	'Leadership',
-	'Learning',
-	'Love',
-	'Loyalty',
-	'Meaningful Work',
-	'Openness',
-	'Optimism',
-	'Peace',
-	'Pleasure',
-	'Poise',
-	'Popularity',
-	'Recognition',
-	'Religion',
-	'Reputation',
-	'Respect',
-	'Responsibility',
-	'Security',
-	'Self-Respect',
-	'Service',
-	'Spirituality',
-	'Stability',
-	'Success',
-	'Status',
-	'Trustworthiness',
-	'Wealth',
-	'Wisdom'
-];
+const buckets = (props) => {
+	const bucketsHTML = bucketList.map((bucket, index) => {
+		return (
+			<Bucket
+				bucketKey={bucket.key}
+				title={bucket.title}
+				values={props.values}
+				maxValues={bucket.maxValues}
+			/>
+		);
+	});
 
-const buckets = () => {
-	return (
-		<div className="row">
-			<div className="col">
-				<h2>Not important</h2>
-				<ListGroup>
-					{valuesList.map((value, i) => (
-						<ListGroupItem key={i}>{value}</ListGroupItem>
-					))}
-				</ListGroup>
-			</div>
-			<div className="col">
-				<h2>Important</h2>
-				<Bucket />
-			</div>
-			<div className="col">
-				<h2>Very important</h2>
-				<Bucket />
-			</div>
-			<div className="col">
-				<h2>Top three</h2>
-				<Bucket />
-			</div>
-		</div>
-	);
+	return <div className="row">{bucketsHTML}</div>;
 };
 
 export default buckets;

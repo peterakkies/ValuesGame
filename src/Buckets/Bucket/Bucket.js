@@ -1,7 +1,13 @@
 import React from 'react';
+import Values from '../../Values/Values.js';
 
 const bucket = (props) => {
-	return <div>A bucket.</div>;
+	return (
+		<div className="col">
+			<h2>{props.title}</h2>
+			<Values bucketKey={props.bucketKey} values={props.values} />
+		</div>
+	);
 };
 
 export default bucket;
