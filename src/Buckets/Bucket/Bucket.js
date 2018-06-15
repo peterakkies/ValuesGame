@@ -16,6 +16,9 @@ const bucket = (props) => {
 	return (
 		<div className="col">
 			<h2>{props.title}</h2>
+			<p>
+				{props.numValues} out of the maximum {props.maxValues}.
+			</p>
 			<ListGroup>{valuesHTML}</ListGroup>
 		</div>
 	);

@@ -1,5 +1,11 @@
 .App {
 	text-align: center;
+	background-color: white;
+}
+
+/* Create a surprise splash of details when the user over-scrolls. */
+html body {
+	background-color: #113654;
 }
 
 .App-logo {
