@@ -1,11 +1,22 @@
 import React from 'react';
-import Values from '../../Values/Values.js';
+
+/* Import Bootstrap components. */
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const bucket = (props) => {
+	const valuesHTML = props.values.map(
+		(value, i) =>
+			value.bucketKey === props.bucketKey ? (
+				<ListGroupItem key={i} onClick={props.clicked}>
+					{value.title}
+				</ListGroupItem>
+			) : null
+	);
+
 	return (
 		<div className="col">
 			<h2>{props.title}</h2>
-			<Values bucketKey={props.bucketKey} values={props.values} />
+			<ListGroup>{valuesHTML}</ListGroup>
 		</div>
 	);
 };
