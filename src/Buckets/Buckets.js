@@ -80,12 +80,26 @@ class Buckets extends Component {
 	/* Returns the number of values in each bucket. */
 	getBucketValueCounts = (values) => {
 		const bucketValueCounts = [];
-		this.state.bucketValueCounts.forEach((numValues, index) => {
+
+		for (let i = 0; i < this.state.bucketValueCounts.length; i++) {
 			bucketValueCounts.push(
-				values.filter((object) => object.bucketKey === index).length
+				values.filter((object) => object.bucketKey === i).length
 			);
-		});
+		}
 		return bucketValueCounts;
+	};
+
+	/* Check whether a given value distribution would exceed any bucket's maximum. */
+	checkValidValueDistribution = (bucketValueCounts) => {
+		let validDistribution = true;
+
+		bucketValueCounts.forEach((count, index) => {
+			if (count > bucketList[index].maxValues) {
+				validDistribution = false;
+			}
+		});
+
+		return validDistribution;
 	};
 
 	valueClickedHandler = (event) => {
@@ -97,15 +111,25 @@ class Buckets extends Component {
 		/* Change the bucket key of the value to be updated. */
 		const updatedBucketKey = this.state.values[updatedIndex].bucketKey + 1;
 
-		/* Create a copy of the values array and mutate that copy. */
-		const updatedValues = this.state.values;
-		updatedValues[updatedIndex].bucketKey = updatedBucketKey;
+		if (updatedBucketKey > this.state.bucketValueCounts.length - 1) {
+			alert('There is no next bucket!');
+		} else {
+			/* Create a copy of the values array and mutate that copy. */
+			const updatedValues = JSON.parse(JSON.stringify(this.state.values));
 
-		/* Update the state. */
-		this.setState({
-			bucketValueCounts: this.getBucketValueCounts(updatedValues),
-			values: updatedValues
-		});
+			updatedValues[updatedIndex].bucketKey = updatedBucketKey;
+			const updatedBucketValueCounts = this.getBucketValueCounts(updatedValues);
+
+			/* If the next bucket has room for an additional value, update the state. */
+			if (this.checkValidValueDistribution(updatedBucketValueCounts)) {
+				this.setState({
+					bucketValueCounts: updatedBucketValueCounts,
+					values: updatedValues
+				});
+			} else {
+				alert('The next bucket is full!');
+			}
+		}
 	};
 
 	render() {
