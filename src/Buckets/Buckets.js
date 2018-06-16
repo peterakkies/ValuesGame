@@ -80,10 +80,9 @@ class Buckets extends Component {
 	/* Returns the number of values in each bucket. */
 	getBucketValueCounts = (values) => {
 		const bucketValueCounts = [];
-		this.state.bucketValueCounts.map((bucketList, index) => {
+		this.state.bucketValueCounts.forEach((numValues, index) => {
 			bucketValueCounts.push(
-				/* Find the number of values with a certain bucket key. */
-				values.filter((object) => object.bucketKey == index).length
+				values.filter((object) => object.bucketKey === index).length
 			);
 		});
 		return bucketValueCounts;
@@ -92,7 +91,7 @@ class Buckets extends Component {
 	valueClickedHandler = (event) => {
 		/* Find the index of the value to update in the values array in state. */
 		const updatedIndex = this.state.values.findIndex(
-			(x) => x.title == event.target.innerText
+			(x) => x.title === event.target.innerText
 		);
 
 		/* Change the bucket key of the value to be updated. */
