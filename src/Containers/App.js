@@ -11,6 +11,17 @@ class App extends Component {
 					<header>
 						<h1>The Values Game</h1>
 					</header>
+					<p>This game will help you determine what you value.</p>
+					<p>
+						We start with a list of 57 values. You choose a subset of these that
+						you consider important. Then, you choose a subset of those that you
+						consider very important. Finally, you choose the three values that
+						are most important to you.
+					</p>
+					<p>
+						You'll find that it will become increasingly difficult to choose
+						whether you value one thing more than another.
+					</p>
 					<Buckets />
 				</div>
 			</div>
