@@ -19,7 +19,7 @@ class App extends Component {
 						are most important to you.
 					</p>
 					<p>
-						You'll find that it will become increasingly difficult to choose
+						You will find that it will become increasingly difficult to choose
 						whether you value one thing more than another.
 					</p>
 					<Buckets />
