@@ -5,6 +5,7 @@ import Buckets from '../Buckets/Buckets.js';
 
 class App extends Component {
 	render() {
+		document.title = 'The Values Game';
 		return (
 			<div className="App">
 				<div className="container">
