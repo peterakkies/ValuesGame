@@ -15,7 +15,6 @@ class Buckets extends Component {
 		List of values from James Clear.
 	 */
 	state = {
-		bucketValueCounts: [57, 0, 0, 0],
 		values: [
 			{ title: 'Achievement', bucketKey: 0 },
 			{ title: 'Adventure', bucketKey: 0 },
@@ -81,7 +80,7 @@ class Buckets extends Component {
 	getBucketValueCounts = (values) => {
 		const bucketValueCounts = [];
 
-		for (let i = 0; i < this.state.bucketValueCounts.length; i++) {
+		for (let i = 0; i < bucketList.length; i++) {
 			bucketValueCounts.push(
 				values.filter((object) => object.bucketKey === i).length
 			);
@@ -111,7 +110,7 @@ class Buckets extends Component {
 		/* Change the bucket key of the value to be updated. */
 		const updatedBucketKey = this.state.values[updatedIndex].bucketKey + 1;
 
-		if (updatedBucketKey > this.state.bucketValueCounts.length - 1) {
+		if (updatedBucketKey > bucketList.length - 1) {
 			alert('There is no next bucket!');
 		} else {
 			/* Create a copy of the values array and mutate that copy. */
@@ -140,7 +139,7 @@ class Buckets extends Component {
 					bucketKey={bucket.key}
 					title={bucket.title}
 					values={this.state.values}
-					numValues={this.state.bucketValueCounts[bucket.key]}
+					numValues={this.getBucketValueCounts(this.state.values)[bucket.key]}
 					maxValues={bucket.maxValues}
 					clicked={this.valueClickedHandler}
 				/>
