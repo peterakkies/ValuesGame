@@ -23,3 +23,7 @@ button.list-group-item:hover {
 	background-color: #d98401;
 	cursor: pointer;
 }
+
+.Bucket {
+	border: 1px solid black;
+}

@@ -1,27 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Values from '../../Values/Values.js';
+import { DropTarget } from 'react-dnd';
 
-/* Import Bootstrap components. */
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
-
-const bucket = (props) => {
-	const valuesHTML = props.values.map(
-		(value, i) =>
-			value.bucketKey === props.bucketKey ? (
-				<ListGroupItem key={i} onClick={props.clicked}>
-					{value.title}
-				</ListGroupItem>
-			) : null
-	);
-
-	return (
-		<div className="col">
-			<h2>{props.title}</h2>
-			<p>
-				{props.numValues} out of the maximum {props.maxValues}.
-			</p>
-			<ListGroup>{valuesHTML}</ListGroup>
-		</div>
-	);
+const bucketTarget = {
+	drop(props, monitor) {
+		props.moveValue(monitor.getItem().valueTitle, props.bucketKey);
+	}
 };
 
-export default bucket;
+const collect = (connect, monitor) => {
+	return {
+		connectDropTarget: connect.dropTarget(),
+		isOver: monitor.isOver()
+	};
+};
+
+class Bucket extends Component {
+	render() {
+		return this.props.connectDropTarget(
+			<div className="col Bucket">
+				<h2>{this.props.title}</h2>
+				<p>
+					{this.props.numValues} out of the maximum {this.props.maxValues}.
+				</p>
+				<Values values={this.props.values} bucketKey={this.props.bucketKey} />
+			</div>
+		);
+	}
+}
+
+export default DropTarget('value', bucketTarget, collect)(Bucket);

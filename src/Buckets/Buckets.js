@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Bucket from './Bucket/Bucket.js';
 
+/* react-dnd allows us to drag and drop values onto a bucket. */
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 /* Describe the value buckets available to the user. */
 const bucketList = [
 	{ key: 0, title: 'Not important', maxValues: 57 },
@@ -101,22 +105,22 @@ class Buckets extends Component {
 		return validDistribution;
 	};
 
-	valueClickedHandler = (event) => {
+	/* Find a value's index in the values array (in state) using the value's title. */
+	findValueIndex = (valueTitle) => {
+		return this.state.values.findIndex((x) => x.title === valueTitle);
+	};
+
+	moveValue = (valueTitle, newBucketKey) => {
 		/* Find the index of the value to update in the values array in state. */
-		const updatedIndex = this.state.values.findIndex(
-			(x) => x.title === event.target.innerText
-		);
+		const newIndex = this.findValueIndex(valueTitle);
 
-		/* Change the bucket key of the value to be updated. */
-		const updatedBucketKey = this.state.values[updatedIndex].bucketKey + 1;
-
-		if (updatedBucketKey > bucketList.length - 1) {
+		if (newBucketKey > bucketList.length - 1) {
 			alert('There is no next bucket!');
 		} else {
 			/* Create a copy of the values array and mutate that copy. */
 			const updatedValues = JSON.parse(JSON.stringify(this.state.values));
 
-			updatedValues[updatedIndex].bucketKey = updatedBucketKey;
+			updatedValues[newIndex].bucketKey = newBucketKey;
 			const updatedBucketValueCounts = this.getBucketValueCounts(updatedValues);
 
 			/* If the next bucket has room for an additional value, update the state. */
@@ -131,6 +135,15 @@ class Buckets extends Component {
 		}
 	};
 
+	valueClickedHandler = (event) => {
+		const newIndex = this.findValueIndex(event.target.innerText);
+
+		/* Change the bucket key of the value to be updated. */
+		const newBucketKey = this.state.values[newIndex].bucketKey + 1;
+
+		this.moveValue(event.target.innerText, newBucketKey);
+	};
+
 	render() {
 		const bucketsHTML = bucketList.map((bucket, index) => {
 			return (
@@ -142,6 +155,7 @@ class Buckets extends Component {
 					numValues={this.getBucketValueCounts(this.state.values)[bucket.key]}
 					maxValues={bucket.maxValues}
 					clicked={this.valueClickedHandler}
+					moveValue={this.moveValue}
 				/>
 			);
 		});
@@ -150,4 +164,4 @@ class Buckets extends Component {
 	}
 }
 
-export default Buckets;
+export default DragDropContext(HTML5Backend)(Buckets);
