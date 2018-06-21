@@ -18,7 +18,7 @@ const collect = (connect, monitor) => {
 class Bucket extends Component {
 	render() {
 		return this.props.connectDropTarget(
-			<div className="col Bucket">
+			<div className="Bucket">
 				<h2>{this.props.title}</h2>
 				<p>
 					{this.props.numValues} out of the maximum {this.props.maxValues}.

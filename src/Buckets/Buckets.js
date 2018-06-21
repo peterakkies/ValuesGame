@@ -135,15 +135,6 @@ class Buckets extends Component {
 		}
 	};
 
-	valueClickedHandler = (event) => {
-		const newIndex = this.findValueIndex(event.target.innerText);
-
-		/* Change the bucket key of the value to be updated. */
-		const newBucketKey = this.state.values[newIndex].bucketKey + 1;
-
-		this.moveValue(event.target.innerText, newBucketKey);
-	};
-
 	render() {
 		const bucketsHTML = bucketList.map((bucket, index) => {
 			return (
@@ -154,13 +145,12 @@ class Buckets extends Component {
 					values={this.state.values}
 					numValues={this.getBucketValueCounts(this.state.values)[bucket.key]}
 					maxValues={bucket.maxValues}
-					clicked={this.valueClickedHandler}
 					moveValue={this.moveValue}
 				/>
 			);
 		});
 
-		return <div className="row">{bucketsHTML}</div>;
+		return <div className="Buckets">{bucketsHTML}</div>;
 	}
 }
 

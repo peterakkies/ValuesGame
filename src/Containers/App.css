@@ -1,22 +1,22 @@
-.App {
-	text-align: center;
+/* Create a surprise splash of details when the user over-scrolls. */
+html body {
 	background-color: #f2f2f2;
 }
 
-/* Create a surprise splash of details when the user over-scrolls. */
-html body {
-	background-color: #113654;
+.App {
+	background-color: #f2f2f2;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.list-group {
-	padding: 1em;
+header {
+	text-align: center;
 }
 
-button.list-group-item {
-	background-color: #113654;
-	color: white;
-	margin: 0.5em 0 0.5em 0;
-	border-radius: 0.5em;
+#explanation {
+	column-count: 2;
+	text-align: left;
 }
 
 button.list-group-item:hover {
@@ -24,6 +24,24 @@ button.list-group-item:hover {
 	cursor: pointer;
 }
 
-.Bucket {
+.Buckets {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+ul.values {
+	list-style: none;
+	text-align: left;
+	padding: 0;
+}
+
+ul.values li {
+	padding: 0.5em;
 	border: 1px solid black;
+	background-color: #113654;
+	color: white;
+	margin: 0.5em 0 0.5em 0;
+	border-radius: 0.5em;
 }

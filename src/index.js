@@ -7,8 +7,5 @@ import './index.css';
 import App from './Containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
-/* Add Bootstrap CSS. */
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

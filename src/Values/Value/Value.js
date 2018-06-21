@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
-import { ListGroupItem } from 'react-bootstrap';
 
 /* Define the specification of the draggable item value. */
 const valueSource = {
@@ -28,9 +27,7 @@ class Value extends Component {
 					cursor: 'move'
 				}}
 			>
-				<ListGroupItem onClick={this.props.clicked}>
-					{this.props.title}
-				</ListGroupItem>
+				<li>{this.props.title}</li>
 			</div>
 		);
 	}

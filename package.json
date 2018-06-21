@@ -3,13 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.1.1",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "prettier": "^1.13.5",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
-    "react-bootstrap": "^0.32.1",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^5.0.0",
     "react-dom": "^16.4.0",
