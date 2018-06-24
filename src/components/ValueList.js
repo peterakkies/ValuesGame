@@ -1,5 +1,5 @@
 import React from 'react';
-import Value from './Value/Value.js';
+import Value from './Value';
 
 const getValuesHTML = (values, bucketKey) => {
 	const HTML = values.map(
@@ -11,10 +11,10 @@ const getValuesHTML = (values, bucketKey) => {
 	return HTML;
 };
 
-const values = (props) => {
+const valueList = (props) => {
 	return (
 		<ul className="values">{getValuesHTML(props.values, props.bucketKey)}</ul>
 	);
 };
 
-export default values;
+export default valueList;

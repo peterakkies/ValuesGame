@@ -1,21 +1,31 @@
-/* Create a surprise splash of details when the user over-scrolls. */
-html body {
-	background-color: #f2f2f2;
+body {
+	background-color: #113654;
+	margin: 0;
+	padding: 0;
 }
 
 .App {
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	font-family: 'Work Sans', sans-serif;
+}
+
+.container {
 	background-color: #f2f2f2;
 	max-width: 800px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto 0 auto;
+	padding: 1em 1em 0 1em;
+	border-left: 1px solid #113654;
+	border-right: 1px solid #113654;
 }
 
 header {
 	text-align: center;
+	margin-top: -1em;
 }
 
 #explanation {
-	column-count: 2;
 	text-align: left;
 }
 
@@ -44,4 +54,12 @@ ul.values li {
 	color: white;
 	margin: 0.5em 0 0.5em 0;
 	border-radius: 0.5em;
+}
+
+footer {
+	width: 100%;
+	background-color: #d98401;
+	color: white;
+	padding: 0.5em;
+	text-align: center;
 }

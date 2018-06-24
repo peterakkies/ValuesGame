@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Values from '../../Values/Values.js';
+import ValueList from './ValueList.js';
 import { DropTarget } from 'react-dnd';
 
 const bucketTarget = {
@@ -21,9 +21,12 @@ class Bucket extends Component {
 			<div className="Bucket">
 				<h2>{this.props.title}</h2>
 				<p>
-					{this.props.numValues} out of the maximum {this.props.maxValues}.
+					{this.props.numValues} out of {this.props.maxValues}.
 				</p>
-				<Values values={this.props.values} bucketKey={this.props.bucketKey} />
+				<ValueList
+					values={this.props.values}
+					bucketKey={this.props.bucketKey}
+				/>
 			</div>
 		);
 	}

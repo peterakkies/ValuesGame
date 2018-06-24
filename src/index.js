@@ -1,10 +1,16 @@
 import React from 'react';
-
-/* We import ReactDOM in the file where we want to do the final rendering.  */
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-import './index.css';
-import App from './Containers/App';
-import registerServiceWorker from './registerServiceWorker';
+import App from './containers/App';
+import rootReducer from './store/reducer';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore(rootReducer);
+
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById('root')
+);

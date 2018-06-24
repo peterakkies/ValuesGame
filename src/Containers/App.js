@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 
-import Buckets from '../Buckets/Buckets.js';
+import './App.css';
+import Buckets from './Buckets';
 
 class App extends Component {
 	render() {
@@ -12,22 +12,29 @@ class App extends Component {
 					<header>
 						<h1>The Values Game</h1>
 						<div id="explanation">
-							<p>This game will help you determine what you value.</p>
 							<p>
-								We start with a list of 57 values. You choose up to 25 of these
-								that you consider important. Then, you choose up to ten of{' '}
-								<em>those</em> that you consider <em>very</em> important.
-								Finally, you choose the three values that are most important to
-								you.
+								This game will help you determine what you value. We start with
+								a list of 57 values. Your task is to:
+								<ol>
+									<li>Choose up to 25 values that you consider important.</li>
+									<li>
+										Choose up to ten of <em>those</em> that you consider{' '}
+										<em>very</em> important.
+									</li>
+									<li>
+										Choose the three values that are most important to you.
+									</li>
+								</ol>
 							</p>
 							<p>
-								You will find that it will become increasingly difficult to
-								choose whether you value one thing more than another.
+								It will become increasingly difficult to choose whether you
+								value one thing more than another.
 							</p>
 						</div>
 					</header>
 					<Buckets />
 				</div>
+				<footer>Copyright 2018 Peter Akkies.</footer>
 			</div>
 		);
 	}

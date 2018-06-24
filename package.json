@@ -1,34 +1,36 @@
 {
-  "name": "valuesgame",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "husky": "^0.14.3",
-    "lint-staged": "^7.2.0",
-    "prettier": "^1.13.5",
-    "prop-types": "^15.6.1",
-    "react": "^16.4.0",
-    "react-dnd": "^5.0.0",
-    "react-dnd-html5-backend": "^5.0.0",
-    "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "prettier --single-quote --write",
-      "git add"
-    ]
-  },
-  "scripts": {
-    "precommit": "lint-staged",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "babel-eslint": "^8.2.3",
-    "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.9.1"
-  }
+	"name": "valuesgame",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"husky": "^0.14.3",
+		"lint-staged": "^7.2.0",
+		"prettier": "^1.13.5",
+		"prop-types": "^15.6.1",
+		"react": "^16.4.0",
+		"react-dnd": "^5.0.0",
+		"react-dnd-html5-backend": "^5.0.0",
+		"react-dom": "^16.4.0",
+		"react-redux": "^5.0.7",
+		"react-scripts": "1.1.4",
+		"redux": "^4.0.0"
+	},
+	"lint-staged": {
+		"src/**/*.{js,jsx,json,css}": [
+			"prettier --single-quote --write",
+			"git add"
+		]
+	},
+	"scripts": {
+		"precommit": "lint-staged",
+		"start": "NODE_PATH=src react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	},
+	"devDependencies": {
+		"babel-eslint": "^8.2.3",
+		"eslint": "^4.19.1",
+		"eslint-plugin-react": "^7.9.1"
+	}
 }
