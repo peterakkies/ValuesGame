@@ -1,3 +1,5 @@
+import { MOVE_VALUE } from './actions';
+
 /* 
 	We will keep track of which values belong to which bucket using state.
 	List of values from James Clear.
@@ -66,7 +68,7 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'MOVE_VALUE':
+		case MOVE_VALUE:
 			return {
 				values: [
 					...state.values.slice(0, action.valueIndex),
