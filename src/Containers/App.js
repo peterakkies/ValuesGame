@@ -5,36 +5,40 @@ import Buckets from './Buckets';
 
 class App extends Component {
 	render() {
-		document.title = 'The Values Game';
 		return (
 			<div className="App">
 				<div className="container">
 					<header>
 						<h1>The Values Game</h1>
+						<h2>{`What's important to you?`}</h2>
 						<div id="explanation">
+							<p>This game will help you determine what you value most.</p>
 							<p>
-								This game will help you determine what you value. We start with
-								a list of 57 values. Your task is to:
-								<ol>
-									<li>Choose up to 25 values that you consider important.</li>
-									<li>
-										Choose up to ten of <em>those</em> that you consider{' '}
-										<em>very</em> important.
-									</li>
-									<li>
-										Choose the three values that are most important to you.
-									</li>
-								</ol>
+								You begin with a list of 57 values. In three rounds, you will
+								narrow down the list based on which values you consider more
+								important than others.
 							</p>
 							<p>
-								It will become increasingly difficult to choose whether you
-								value one thing more than another.
+								To move a value, just drag it to the next column ({`"bucket"`}).
+							</p>
+							<p>
+								Each bucket shows how many values it currently holds. When you
+								fill a bucket up, the next bucket will appear. You finish with
+								the three values that are most important to you.
+							</p>
+							<p>
+								Have fun! <br />
+								— Peter Akkies
 							</p>
 						</div>
 					</header>
 					<Buckets />
+					<footer>
+						Copyright 2018 <a href="https://peterakkies.net">Peter Akkies</a>.
+						Have a suggestion for improvement?{' '}
+						<a href="mailto:peter@peterakkies.net">Email me</a>!
+					</footer>
 				</div>
-				<footer>Copyright 2018 Peter Akkies.</footer>
 			</div>
 		);
 	}

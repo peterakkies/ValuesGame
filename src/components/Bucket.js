@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ValueList from './ValueList.js';
 import { DropTarget } from 'react-dnd';
+import Value from './Value';
 
 const bucketTarget = {
 	drop(props, monitor) {
@@ -15,6 +15,16 @@ const collect = (connect, monitor) => {
 	};
 };
 
+const getValuesHTML = (values, bucketKey) => {
+	const HTML = values.map(
+		(value, index) =>
+			value.bucketKey === bucketKey ? (
+				<Value key={index} title={value.title} />
+			) : null
+	);
+	return HTML;
+};
+
 class Bucket extends Component {
 	render() {
 		return this.props.connectDropTarget(
@@ -23,10 +33,9 @@ class Bucket extends Component {
 				<p>
 					{this.props.numValues} out of {this.props.maxValues}.
 				</p>
-				<ValueList
-					values={this.props.values}
-					bucketKey={this.props.bucketKey}
-				/>
+				<ul className="values">
+					{getValuesHTML(this.props.values, this.props.bucketKey)}
+				</ul>
 			</div>
 		);
 	}

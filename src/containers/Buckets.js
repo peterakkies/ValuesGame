@@ -26,16 +26,18 @@ class Buckets extends Component {
 			if (checkValidValueDistribution(nextValues)) {
 				this.props.assignValueToBucket(valueIndex, valueTitle, newBucketKey);
 			} else {
-				alert('The next bucket is full!');
+				alert(
+					'This bucket is full. Remove a value from it before adding another one.'
+				);
 			}
 		}
 	};
 
 	render() {
-		const bucketsHTML = BucketList.map((bucket, index) => {
+		const bucketsHTML = BucketList.map((bucket) => {
 			return (
 				<Bucket
-					key={index}
+					key={bucket.key}
 					bucketKey={bucket.key}
 					title={bucket.title}
 					values={this.props.values}
