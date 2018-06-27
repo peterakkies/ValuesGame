@@ -10,7 +10,7 @@ class App extends Component {
 				<div className="container">
 					<header>
 						<h1>The Values Game</h1>
-						<h2>{`What's important to you?`}</h2>
+						<h2>{`What's most important to you?`}</h2>
 						<div id="explanation">
 							<p>This game will help you determine what you value most.</p>
 							<p>
@@ -23,8 +23,8 @@ class App extends Component {
 							</p>
 							<p>
 								Each bucket shows how many values it currently holds. When you
-								fill a bucket up, the next bucket will appear. You finish with
-								the three values that are most important to you.
+								fill a bucket up, start moving values to the next bucket. You
+								finish with the three values that are most important to you.
 							</p>
 							<p>
 								Have fun! <br />

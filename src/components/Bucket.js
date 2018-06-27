@@ -29,7 +29,7 @@ class Bucket extends Component {
 	render() {
 		return this.props.connectDropTarget(
 			<div className="Bucket">
-				<h2>{this.props.title}</h2>
+				<h2 className="bucket-title">{this.props.title}</h2>
 				<p>
 					{this.props.numValues} out of {this.props.maxValues}.
 				</p>

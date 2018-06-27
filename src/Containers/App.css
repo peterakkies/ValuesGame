@@ -13,19 +13,23 @@ body {
 
 .container {
 	background-color: #f2f2f2;
-	max-width: 800px;
+	max-width: 50em;
 	margin: 0 auto 0 auto;
-	padding: 1em 1em 0 1em;
 	border-left: 1px solid #113654;
 	border-right: 1px solid #113654;
 }
 
 header {
 	text-align: center;
-	margin-top: -1em;
+	margin-top: -2em;
+}
+
+header h1 {
+	padding-top: 0.5em;
 }
 
 #explanation {
+	padding: 0 1em 0 1em;
 	text-align: left;
 }
 
@@ -39,6 +43,18 @@ button.list-group-item:hover {
 	flex-flow: row wrap;
 	justify-content: space-between;
 	align-items: stretch;
+	margin: -2em 1em 0 1em;
+}
+
+.Buckets h2.bucket-title {
+	position: sticky;
+	top: -1px;
+	background-color: #f2f2f2;
+	padding-top: 0.5em;
+}
+
+.Bucket {
+	flex: 0 0 12em;
 }
 
 ul.values {
@@ -54,14 +70,15 @@ ul.values li {
 	color: white;
 	margin: 0.5em 0 0.5em 0;
 	border-radius: 0.5em;
+	width: 150px;
 }
 
 footer {
 	width: 100%;
 	background-color: #d98401;
 	color: white;
-	padding: 0.5em;
 	text-align: center;
+	padding: 0.5em 0 0.5em 0;
 }
 
 footer a {
