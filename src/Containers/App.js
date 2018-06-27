@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import './App.css';
-import Buckets from './Buckets';
+import 'containers/App.css';
+import Buckets from 'containers/Buckets';
 
 class App extends Component {
 	render() {
@@ -12,20 +12,24 @@ class App extends Component {
 						<h1>The Values Game</h1>
 						<h2>{`What's most important to you?`}</h2>
 						<div id="explanation">
-							<p>This game will help you determine what you value most.</p>
 							<p>
-								You begin with a list of 57 values. In three rounds, you will
-								narrow down the list based on which values you consider more
-								important than others.
+								This game will help you determine what you value most.{' '}
+								{`Here's`} how:
 							</p>
-							<p>
-								To move a value, just drag it to the next column ({`"bucket"`}).
-							</p>
-							<p>
-								Each bucket shows how many values it currently holds. When you
-								fill a bucket up, start moving values to the next bucket. You
-								finish with the three values that are most important to you.
-							</p>
+							<ul>
+								<li>
+									<strong>Drag and drop</strong> values from one bucket to
+									another.
+								</li>
+								<li>
+									Note that you can only fit a certain number of values in each
+									bucket.
+								</li>
+								<li>
+									Work in steps. Ask: {`what's`} important? Then ask: {`what's`}{' '}
+									very important?
+								</li>
+							</ul>
 							<p>
 								Have fun! <br />
 								— Peter Akkies
