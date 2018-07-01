@@ -14,8 +14,16 @@
 		"node": true,
 		"mocha": true
 	},
-	"extends": ["eslint:recommended", "plugin:react/recommended"],
+	"extends": [
+		"react-app",
+		"airbnb",
+		"plugin:prettier/recommended",
+		"plugin:react/recommended"
+	],
 	"rules": {
-		"react/prop-types": 0
+		"jsx-a11y/href-no-hash": [0],
+		"react/jsx-indent": [2, "tab"],
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"react/jsx-one-expression-per-line": [0]
 	}
 }
