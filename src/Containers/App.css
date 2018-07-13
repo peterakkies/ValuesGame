@@ -8,7 +8,7 @@ body {
 	background-color: white;
 	margin: 0;
 	padding: 0;
-	font-family: 'Work Sans', sans-serif;
+	font-family: "Merriweather Sans", sans-serif;
 }
 
 .container {
@@ -28,9 +28,23 @@ header h1 {
 	padding-top: 0.5em;
 }
 
-#explanation {
-	padding: 0 1em 0 1em;
+header h1 a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#introduction {
+	padding: 0 1em 1em 1em;
 	text-align: left;
+}
+
+#introduction button {
+	padding: 0.5em;
+	background-color: #d98401;
+	color: white;
+	font: inherit;
+	border: 1px solid #113654;
+	cursor: pointer;
 }
 
 button.list-group-item:hover {
