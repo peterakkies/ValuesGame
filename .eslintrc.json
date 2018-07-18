@@ -4,27 +4,27 @@
 		"ecmaVersion": 6,
 		"sourceType": "module",
 		"ecmaFeatures": {
-			"jsx": true
+			"jsx": true,
+			"impliedStrict": true,
+			"experimentalObjectRestSpread": true
 		}
 	},
 	"env": {
 		"es6": true,
 		"browser": true,
-		"node": true,
-		"mocha": true
+		"jest": true,
+		"node": true
 	},
 	"extends": ["airbnb", "prettier", "prettier/react"],
+	"plugins": ["react"],
 	"rules": {
 		"jsx-a11y/href-no-hash": [0],
-		"no-shadow": "off",
-		"react/jsx-indent": [2, "tab"],
 		"react/jsx-filename-extension": [
 			1,
 			{
 				"extensions": [".js", ".jsx"]
 			}
 		],
-		"react/jsx-one-expression-per-line": [0],
 		"react/prop-types": [0]
 	}
 }
